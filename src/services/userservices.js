@@ -200,11 +200,26 @@ let updateUserData = (data) => {
     })
 }
 
+let getAllCodeService = ()=>{
+    return new Promise(async(resolve,reject)=>{
+        try{
+            let res = {};
+            let allCode = await db.Allcode.findAll();
+            res.errCode = 0;
+            res.data = allCode;
+            resolve(res);
+        }catch(e){
+            reject(e);
+        }
+    })
+}
+
 module.exports = {
     handleUserLogin: handleUserLogin,
     checkUserEmail: checkUserEmail,
     getAllUsers: getAllUsers,
     creteNewUser: creteNewUser,
     deleteUser: deleteUser,
-    updateUserData: updateUserData
+    updateUserData: updateUserData,
+    getAllCodeService : getAllCodeService
 }
