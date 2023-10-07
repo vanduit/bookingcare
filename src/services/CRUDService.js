@@ -1,5 +1,6 @@
 import bcrypt from 'bcryptjs';
 import db from '../models/index';
+import { reject } from 'bcrypt/promises';
 
 const salt = bcrypt.genSaltSync(10);
 
@@ -94,6 +95,8 @@ let updateUserData = (data) => {
             reject(e);
         }
     })
+
+    
 }
 
 let deleteUserCRUD = (userId) => {

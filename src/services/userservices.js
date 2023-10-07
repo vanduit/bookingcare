@@ -12,7 +12,7 @@ let handleUserLogin = (email, password) => {
 
                 let user = await db.User.findOne({
 
-                    attributes: ['email', 'roleId', 'password'],
+                    attributes: ['email', 'roleId', 'password', 'firstName','lastName'],
                     where: { email: email },
                     raw: true
 
@@ -200,14 +200,24 @@ let updateUserData = (data) => {
     })
 }
 
-let getAllCodeService = ()=>{
+let getAllCodeService = (typeInput)=>{
     return new Promise(async(resolve,reject)=>{
         try{
-            let res = {};
-            let allCode = await db.Allcode.findAll();
-            res.errCode = 0;
-            res.data = allCode;
-            resolve(res);
+            if(!typeInput){
+                resolve({
+                    errCode : 1,
+                    errMessage: 'Missing required paramaters !'
+                })
+            }else{
+                let res = {};
+                let allCode = await db.Allcode.findAll({
+                where : {type : typeInput}
+            });
+                res.errCode = 0;
+                res.data = allCode;
+                resolve(res);
+            }
+            
         }catch(e){
             reject(e);
         }
