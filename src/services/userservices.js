@@ -127,7 +127,8 @@ let creteNewUser = (data) => {
                     phonenumber: data.phonenumber,
                     gender: data.gender,
                     roleId: data.roleId,
-                    positionId: data.positionId
+                    positionId: data.positionId,
+                    image: data.avatar
                 })
 
                 resolve({
