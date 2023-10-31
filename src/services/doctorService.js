@@ -10,12 +10,12 @@ let getTopDoctorHome = (limitInput)=>{
                 attributes:{
                     exclude: ['password','image']
                 },
-                // include:[
-                //     {model: db.Allcode, as: 'positionData', attributes:['valueEn','valueVi']},
-                //     {model: db.Allcode, as: 'genderData', attributes:['valueEn','valueVi']}
-                // ],
-                // raw : true,
-                // nest: true
+                include:[
+                    {model: db.Allcode, as: 'positionData', attributes:['valueEn','valueVi']},
+                    {model: db.Allcode, as: 'genderData', attributes:['valueEn','valueVi']}
+                ],
+                raw : true,
+                nest: true
             })
 
             resolve({
