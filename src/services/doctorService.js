@@ -93,7 +93,7 @@ let getDetailDoctorById = (inputId)=>{
                         id : inputId
                     },
                     attributes:{
-                        exclude: ['password','image']
+                        exclude: ['password']
                     },
                     include:[
                         {
