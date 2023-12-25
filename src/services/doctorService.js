@@ -78,11 +78,7 @@ let saveDetailInforDoctor = (inputData) => {
                         doctorMarkdown.description = inputData.description;
                         await doctorMarkdown.save();
                     }
-
-
                 }
-
-
                 resolve({
                     errCode: 0,
                     errMessage: 'Save infor doctor succeed !'
